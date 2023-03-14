@@ -1,5 +1,5 @@
 package areavolume;
-
+import java.util.Scanner;
 
 interface CalcArea{
 	double calcArea();
@@ -107,17 +107,26 @@ class Triangle implements CalcArea{
 
 public class AreaVolume{
 	public static void main(String[] args) {
-		Circle myCircle = new Circle(4);
-		System.out.println(myCircle.calcArea() + " " + myCircle.calcPerimeter());
-		Sphere mySphere = new Sphere(5);
-		System.out.println(mySphere.calcArea() + " " + mySphere.calcPerimeter() + " " + mySphere.calcSurfaceArea() + " " + mySphere.calcVolume());
+		Scanner sc = new Scanner(System.in);
 		
-		Square mySquare = new Square(4);
-		System.out.println(mySquare.calcArea() + " " + mySquare.calcPerimeter());
-		Cuboid myCuboid = new Cuboid(5);
-		System.out.println(myCuboid.calcArea() + " " + myCuboid.calcPerimeter() + " " + myCuboid.calcSurfaceArea() + " " + myCuboid.calcVolume());		
+		System.out.println("Enter radius for Circle and Sphere");
+		int radius = sc.nextInt();
+		Circle myCircle = new Circle(radius);
+		System.out.println("Area of Circle " + String.format("%.2f", myCircle.calcArea()) + "\nPerimeter of Circle " + String.format("%.2f", myCircle.calcPerimeter()));
+		Sphere mySphere = new Sphere(radius);
+		System.out.println("Area of Sphere " + String.format("%.2f" , mySphere.calcArea()) + "\nPerimeter of Sphere " + String.format("%.2f", mySphere.calcPerimeter()));
+		System.out.println("Surface Are of Sphere" + String.format("%.2f" , mySphere.calcSurfaceArea()) + "\nVolume of Sphere "  +String.format("%.2f", mySphere.calcVolume()));
 		
-		Triangle myTriangle = new Triangle(5);
-		System.out.println(myTriangle.calcArea() + " " + myTriangle.calcPerimeter());
+		System.out.println("Enter side of Square");
+		int side = sc.nextInt();
+		Square mySquare = new Square(side);
+		System.out.println("Area of Square " + String.format("%.2f", mySquare.calcArea()) + "\nPerimeter of Square " + String.format("%.2f",mySquare.calcPerimeter()));
+		Cuboid myCuboid = new Cuboid(side);
+		System.out.println("Surface area of Cube " + String.format("%.2f",myCuboid.calcSurfaceArea()) + "\nVolume of Square " + String.format("%.2f",myCuboid.calcVolume()));		
+		
+		System.out.println("Enter side of triangle");
+		int sideTriangle = sc.nextInt();
+		Triangle myTriangle = new Triangle(sideTriangle);
+		System.out.println("Area of Triangle " + String.format("%.2f",myTriangle.calcArea()) + "\nPerimeter of Triangle " + String.format("%.2f",myTriangle.calcPerimeter()));
 	}
 }
