@@ -1,5 +1,12 @@
 package passbyvaluepassbyreference;
-
+/**
+ * 
+ * @author nandhakumar
+ * class PassByValuePassByReference - 
+ * constructor initializing size
+ * main method for printing values , passing values, manipulating values
+ * 
+ */
 public class PassByValuePassByReference {
 	
 	int size = 35;
@@ -60,18 +67,13 @@ public class PassByValuePassByReference {
 		obj1.PassByReference(obj);
 		System.out.println("After Passing");
 		System.out.println(obj.size);
-		
-		
 		passingPrimitive(intValue , floatValue , byteValue , charValue , boolValue , doubleValue , longValue , shortValue);
-
 	}
-
 	public static void passingObjects(int[] arr) {
 		arr[0] = 3;
 		arr[2] = 4;
 		arr[1] = 54;
 	}
-
 	public static void passingPrimitive(int intValue ,float floatValue ,byte byteValue ,char charValue ,boolean boolValue ,double doubleValue ,long longValue ,short shortValue) {
 		intValue = 20;
 		floatValue = 2.8f;
@@ -82,9 +84,11 @@ public class PassByValuePassByReference {
 		longValue = 2312435L;
 		shortValue = 124;
 	}
-
 }
-
+/**
+ * class class2
+ * method PassByReference - initializing size
+ */
 class Class2{
 	public void PassByReference(PassByValuePassByReference obj) {
 		obj.size = 10;

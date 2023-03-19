@@ -1,5 +1,11 @@
 package defaultvalues;
-
+/**
+ * 
+ * @author nandhakumar
+ *class DataTypesDefaultValues
+ *main method print the default values for different data types
+ *
+ */
 public class DataTypesDefaultValues {
 	static int a;
 	static float f;

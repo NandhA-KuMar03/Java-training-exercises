@@ -1,7 +1,14 @@
 package primenumber;
 
 import java.util.Scanner;
-
+/**
+ * 
+ * @author nandhakumar
+ *class - armstrong 
+ *method armstrong checks the condition for armstrong number and prints whether the number is armstrong or not
+ *method perfect checks condition for perfect number and prints whether the number is perfect or not
+ *method palindrome checks condition for palindrome and prints whether the number is palindrome or not
+ */
 public class ArmstrongNumber {
 
 	public static void armstrong(int number , int length) {
@@ -17,6 +24,9 @@ public class ArmstrongNumber {
 		}
 		if(sum == number1)
 			System.out.println("Armstrong Number");
+		else{
+			System.out.println("not a armstrong number");
+		}
 	}
 	
 	public static void perfect(int number) {
@@ -27,6 +37,9 @@ public class ArmstrongNumber {
 		}	
 		if(number == sum)
 			System.out.println("Perfect Number");
+		else{
+			System.out.println("not a perfect number");
+		}
 	}
 	
 	public static void palindrome(int number) {
@@ -40,6 +53,9 @@ public class ArmstrongNumber {
 		if(flag) {
 			System.out.println("Palindrome");
 		}
+		else{
+			System.out.println("not a palindrome");
+		}
 	}
 	
 	public static void main(String[] args) {
@@ -51,7 +67,6 @@ public class ArmstrongNumber {
 		palindrome(n);
 		sc.close();
 	}
-
 }
 
 

@@ -1,5 +1,11 @@
 package areavolume;
 import java.util.Scanner;
+/**
+ * 
+ * @author nandhakumar
+ *interface calcarea which has 2 abstract methods calcArea and calcPerimeter for 2d shapes
+ *interface calcvolume which has 2 abstract methods calcVolume and calcSurfaceArea for 3d shapes
+ */
 
 interface CalcArea{
 	double calcArea();
@@ -11,6 +17,11 @@ interface CalcVolume{
 	double calcSurfaceArea();
 }
 
+/**
+ * 
+ * @author nandhakumar
+ *class circle returns area and perimeter of the value
+ */
 class Circle implements CalcArea{
 	double pi = Math.PI;
 	int a;
@@ -105,6 +116,12 @@ class Triangle implements CalcArea{
 	}
 }
 
+/**
+ * 
+ * @author nandhakumar
+ *CLASS areavolume
+ *main method - call the functionalities based on the user input
+ */
 public class AreaVolume{
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

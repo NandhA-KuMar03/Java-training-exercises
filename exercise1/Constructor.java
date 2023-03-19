@@ -1,12 +1,15 @@
 package constructor;
-
+/**
+ * 
+ * @author nandhakumar
+ * The class - construcutor
+ * main method creates a instance for the C class
+ *
+ */
 public class Constructor {
-
 	public static void main(String[] args) {
 		C c = new C();
-
 	}
-
 }
 
 class B {

@@ -1,5 +1,12 @@
 package student;
 import java.util.Scanner;
+
+/**
+ * 
+ * @author nandhakumar
+ *class Student 
+ *main method Creates instance for exam Class 
+ */
 public class student {
 	String name;
 	int rollno;
@@ -8,7 +15,12 @@ public class student {
 		examObj.getMarks();
 	}	
 }
-
+/**
+ * 
+ * @author nandhakumar
+ *class Exam
+ *getMarks method prompts the user to enter three marks
+ */
 class Exam extends student{
 	int mark1,mark2,mark3;
 	public void getMarks() {
@@ -22,7 +34,13 @@ class Exam extends student{
 	}
 
 }
- 
+ /**
+  * 
+  * @author nandhakumar
+  *class Result
+  *constructor used to initializing marks
+  *method CalculateTotal for printing Total marks
+  */
 class Result extends Exam{
 	int TotalMark;
 	public Result(int mark1, int mark2, int mark3) {

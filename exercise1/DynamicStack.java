@@ -2,7 +2,13 @@ package dynamicstack;
 
 import java.util.Arrays;
 import java.util.Scanner;
-
+/**
+ * 
+ * @author nandhakumar
+ *interface dynamic has three abstract methods push pop and print
+ *class dynamicStack implements the interface and overrides the methods
+ *method push,pop,print - stack functionalities
+ */
 interface dynamic{
 	void push(int number);
 	void pop();
@@ -39,7 +45,12 @@ class dynamicStack1 implements dynamic{
 		}
 	}
 }
-
+/**
+ * 
+ * @author nandhakumar
+ *class dynamicStack
+ *user input and call the functionalities
+ */
 public class DynamicStack {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

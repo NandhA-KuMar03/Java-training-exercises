@@ -1,5 +1,11 @@
 package primenumber;
 
+/**
+ * 
+ * @author nandhakumar
+ *class - primenumber
+ *main method check the prime number condition and prints whether the number is prime or not
+ */
 public class PrimeNumber {
 
 	public static void main(String[] args) {

@@ -1,14 +1,25 @@
 package stack;
 import java.util.*;
 
-
+/**
+ * 
+ * @author nandhakumar
+ *Interface fixed has three abstract methods push pop and print
+ * class fixedStack implements the interface and overrides the methods
+ *method push,pop,print - stack functionalities
+ */
 interface fixed{
 	void push(int number);
 	void pop();
 	void print();
 }
 
-
+/**
+ * 
+ * @author nandhakumar
+ *class FixedStack
+ *method push - pushing elements to stack
+ */
 class FixedStack implements fixed{
 	int top=0;
 	int[] arr;
@@ -45,6 +56,13 @@ class FixedStack implements fixed{
 	}
 	
 }
+
+/**
+ * 
+ * @author nandhakumar
+ *class Stack
+ *input user and do the function appropiately.
+ */
 public class Stack {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
