@@ -1,11 +1,19 @@
 package divisor;
 import java.util.*;
+/**
+ * 
+ * @author nandhakumar
+ *class - Divisor
+ *main method calls the method run infinitely
+ *run method prompts the user to get value for numerator and denominator
+ *If the value is not a number then the exception is thrown
+ *
+ */
 public class Divisor {
 	public static void main(String[] args) {
 			while(true)
 				run();
 		}
-	
 		public static void run() {
 			Scanner sc = new Scanner(System.in);
 				try {

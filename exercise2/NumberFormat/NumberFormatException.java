@@ -1,6 +1,14 @@
 package numbeformatexception;
 import java.util.*;
-public class NumberFormatExeption1 {
+/**
+ * 
+ * @author nandhakumar
+ *class numberformatexception
+ *validate method throws the NegativeRangeException custom exception if the value is less than zero
+ *main method gets value from the user for 10 subjects and prints the average of 10 subjects
+ *
+ */
+public class NumberFormatExeption {
 	
 	static void validate(int mark) throws NegativeRangeException {
 		if(mark<0) {

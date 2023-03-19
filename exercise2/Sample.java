@@ -1,5 +1,10 @@
 package sample;
-
+/**
+ * 
+ * @author nandhakumar
+ *class Sample
+ *main mehtod creates a object and calls mth1
+ */
 public class Sample {
 	public void mth1() {
 		mth2();
@@ -7,8 +12,8 @@ public class Sample {
 	}
 	public void mth2() {
 		try {
-			System.exit(0);
-//			return;
+//			System.exit(0);
+			return;
 		}
 		catch(Exception e) {
 			System.out.println("catch-mth2");

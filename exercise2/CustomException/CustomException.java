@@ -1,5 +1,12 @@
 package customexception;
 import java.util.*;
+/**
+ * 
+ * @author nandhakumar
+ *class - Custom Exception
+ *main method prompts the user to enter the temperature and passes the value to checkTemperature method
+ *CheckTemperature throws the custom exception if condition fails
+ */
 public class CustomException {  
 	
     static void checkTemperature (int temperature) throws Temperature{    
