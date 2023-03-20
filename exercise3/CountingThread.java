@@ -1,0 +1,36 @@
+package countingthread;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class CountingThread {
+	public static void main(String[] args) {
+		ExecutorService es = Executors.newFixedThreadPool(1);
+		PrintValues pv = new PrintValues();
+		for(int i=0;i<100;i++) {
+			es.execute(()->{
+				pv.display();
+			});
+		}
+	}
+	
+
+}
+
+class PrintValues{
+	int i=1;
+	public void display() {
+		if(i%10==0) {
+			System.out.println("String");
+			i++;
+		}
+		else {
+			System.out.println(i++);
+		}
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+}
