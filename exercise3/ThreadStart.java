@@ -11,7 +11,7 @@ public class ThreadStart {
 
 		});
 		displayThread.start();
-		displayThread.stop();
+		displayThread.suspend();
 		displayThread.start();
 	}
 	

@@ -19,7 +19,6 @@ public class EvenOdd {
 		es.shutdown();
 	}
 }
-
 class PrintValues{
 	int oddNum = 1;
 	int evenNum = 2;

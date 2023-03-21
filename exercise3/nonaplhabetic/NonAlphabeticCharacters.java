@@ -2,20 +2,20 @@ package nonalphabetic;
 
 import java.io.IOException;
 import java.util.Scanner;
+
 public class NonAlphabeticCharacters {
 	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
-		AcceptValue av = new AcceptValue();
+		AcceptValue acceptValues = new AcceptValue();
 		while(true) {
 			System.out.println("Enter the input");
-			String s = sc.next();
-			for(int i=0;i<s.length();i++) {
+			char s = sc.next().charAt(0);
 				try {
-					av.CheckValue(s.charAt(i));
-				} catch (NonAlphabeticCustom e) {
+					acceptValues.CheckValue(s);
+				} 
+				catch (NonAlphabeticCustom e) {
 					System.out.println(e);
 				}
-			}
 		}
 	}
 }

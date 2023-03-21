@@ -5,16 +5,14 @@ import java.util.concurrent.Executors;
 
 public class CountingThread {
 	public static void main(String[] args) {
-		ExecutorService es = Executors.newFixedThreadPool(1);
-		PrintValues pv = new PrintValues();
+		ExecutorService executorService = Executors.newFixedThreadPool(1);
+		PrintValues printValues = new PrintValues();
 		for(int i=0;i<100;i++) {
-			es.execute(()->{
-				pv.display();
+			executorService.execute(()->{
+				printValues.display();
 			});
 		}
 	}
-	
-
 }
 
 class PrintValues{
