@@ -27,37 +27,39 @@ public class DigitalClock{
 				}
 			});
 			executorService.shutdown();
-			
 	}
 }
 
 class Timer{	
 	
-	int hour =0;
-	int minute=0;
-	int second=0;
+	int hour =23;
+	int minute=59;
+	int second=55;
 
 	synchronized public void Hour() {
 		try {
 			wait();	
-			if(minute == 59){
-				minute=0;
-				++hour;
-				if(hour == 24) {
-					hour=0;
-				}
+			if(hour == 23){
+				hour=0;
 			}
 			else {
-				minute++;
+				hour++;	
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
-
+	
 	synchronized public void Minute() {
 		try {
 			wait();
+			if(minute == 59) {
+				minute=0;
+				notifyAll();
+			}
+			else {
+				minute++;	
+			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -66,12 +68,11 @@ class Timer{
 	synchronized public void Second() {
 		try {
 			wait(1000);
-			if(second == 59) {
-				notifyAll();
-			}
 			if(second == 60) {
+				notify();
+				wait(1000);
 				second=0;
-			}
+			}			
 			System.out.println(hour + " " + minute + " " + second);
 			++second;
 		} catch (InterruptedException e) {

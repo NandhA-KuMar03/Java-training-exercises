@@ -5,27 +5,24 @@ import java.util.concurrent.Executors;
 
 public class MessageDesignPrint {
 public static void main(String[] args) {
-	ExecutorService executorService = Executors.newFixedThreadPool(3);
+	ExecutorService executorService = Executors.newFixedThreadPool(2);
 		
 		executorService.execute(()->{
-				String s = "[-----Mes";
+				String s = "Message1";
 				display(s);
-
 		});
 		executorService.execute(()->{
-				String s = "sage--";
+				String s = "Message2";
 				display(s);
-
 		});
 		executorService.execute(()->{
-			String s = "---]";
+			String s = "Message3";
 				display(s);
 		});
 		
 		executorService.shutdown(); 
 }
-
-synchronized public static void display(String msg1) {
-	System.out.print(msg1);
+public static void display(String msg1) {
+	System.out.println("[-----" + msg1 + "-----]");
 	}
 }
