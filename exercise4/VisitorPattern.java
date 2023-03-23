@@ -1,40 +1,35 @@
 package visitor;
 
-interface message{
-	public void accept(UserMessage msg);
+interface MobileShopVisitor{
+	public void visit(Poorvika poorvika);
+	public void visit(Viveks viveks);
 }
-interface UserMessage{
-	public void visit(FamilyGrp family);
-	public void visit(FriendsGrp frnds);
-}
-class FamilyGrp implements message{
+class UserVisitor implements MobileShopVisitor{
 	@Override
-	public void accept(UserMessage msg) {
-		msg.visit(this);
-	}
-}
-class FriendsGrp implements message{
-	@Override
-	public void accept(UserMessage msg) {
-		msg.visit(this);
-	}
-}
-class MessageDisplay implements UserMessage{
-	@Override
-	public void visit(FamilyGrp family) {	
-		System.out.println("Good morning to family group");
+	public void visit(Poorvika poorvika) {
+		int pricePoorvika = poorvika.price;
+		if(poorvika.cashType == "Cash")
+			pricePoorvika-=2000;
+		if(poorvika.cashType == "Card")
+			pricePoorvika-=2500;
+		System.out.println(pricePoorvika + " In Poorvika");
 	}
 	@Override
-	public void visit(FriendsGrp frnds) {
-		System.out.println("Good morning to friends group");
+	public void visit(Viveks viveks) {
+		int priceViveks = viveks.price;
+		if(viveks.cashType == "Cash")
+			priceViveks-=3000;
+		if(viveks.cashType == "Card")
+			priceViveks-=3500;
+		System.out.println(priceViveks +" In Viveks");
 	}
 }
-class VisitorPattern{
+public class VisitorPattern{
 	public static void main(String[] args) {
-		message[] messages = new message[] {new FamilyGrp(), new FriendsGrp()};
-		UserMessage m = new MessageDisplay();
-		for(message message1 : messages) {
-			message1.accept(m);
+		MobileShopVisitor obj = new UserVisitor();
+		MobileShop games[] = { new Poorvika(25000,"Cash"), new Viveks(5000, "Card")};
+		for(MobileShop mob : games) {
+			mob.ComparePhones(obj);
 		}
 	}
 }
