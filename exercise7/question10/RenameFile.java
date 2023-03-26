@@ -4,9 +4,9 @@ import java.io.File;
 
 public class Rename {
 	public static void main(String[] args) {
-		File file = new File("/Users/nandhakumar/Documents/java/exercise7/src/sample1");
-		File file2 = new File("/Users/nandhakumar/Documents/java/exercise7/src/sample2");
-		boolean success = file.renameTo(file2);
+		File file = new File("src/question10/sample1.txt");
+		File newFile = new File("src/question10/sample2.txt");
+		boolean success = file.renameTo(newFile);
 		if(success) {
 			System.out.println("File renamed");
 		}

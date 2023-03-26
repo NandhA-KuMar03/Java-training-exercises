@@ -4,7 +4,7 @@ import java.io.File;
 
 public class Delete {
 	public static void main(String[] args) {
-		File file = new File("/Users/nandhakumar/Documents/java/exercise7/src/sample2");
+		File file = new File("src/sample1.txt");
 		if (file.delete()) {
             System.out.println("File deleted successfully");
         }

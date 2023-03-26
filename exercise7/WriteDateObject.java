@@ -10,12 +10,13 @@ import java.util.Date;
 
 public class WriteDateObject {
 	public static void main(String[] args) throws IOException {
-		Date d1 = new Date();
+		Date dateObject = new Date();
 		OutputStream file = new FileOutputStream("/Users/nandhakumar/Documents/java/exercise7/src/writedateobject/dateObj.txt");
-		ObjectOutputStream fw = new ObjectOutputStream(file);
-		fw.writeObject(d1);
+		ObjectOutputStream outputStream = new ObjectOutputStream(file);
+		outputStream.writeObject(dateObject);
 		
-		ObjectInputStream oi = new ObjectInputStream(new FileInputStream("/Users/nandhakumar/Documents/java/exercise7/src/writedateobject/dateObj.txt"));
-		System.out.println(oi);
+		ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("/Users/nandhakumar/Documents/java/exercise7/src/writedateobject/dateObj.txt"));
+		System.out.println(objectInputStream);
+		outputStream.close();
 	}
 }
