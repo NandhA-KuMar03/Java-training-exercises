@@ -17,7 +17,9 @@ class calculateArrivalTime{
 	}
 	public void calculate() {
 		int timeToTravelHours = distance/speed;
+		int timeToTravelMinutes1 = 0;
 		float timeToTravelMinutes = distance%speed;
+//		float timeToTravelMinutes = 0;
 		int totalMin = 1440 - 60 * inputDateTime.getHour() - inputDateTime.getMinute();
 		int inputDateHoursRemaining = totalMin / 60;
 		int inputDateMinutesRemaining = totalMin % 60;
@@ -31,9 +33,9 @@ class calculateArrivalTime{
 		}
 		else{
 			if(inputDateHoursRemaining <= 8) {
-				inputDateTime = inputDateTime.plusHours(Math.min(inputDateHoursRemaining, timeToTravelHours)).plusMinutes(Math.min(inputDateMinutesRemaining, (int)timeToTravelMinutes));
+				inputDateTime = inputDateTime.plusHours(Math.min(inputDateHoursRemaining, timeToTravelHours)).plusMinutes(Math.max(inputDateMinutesRemaining, (int)timeToTravelMinutes));
 				timeToTravelHours -= Math.min(inputDateHoursRemaining, timeToTravelHours);
-				timeToTravelMinutes -= Math.min(inputDateMinutesRemaining, (int)timeToTravelMinutes);
+				timeToTravelMinutes1 += Math.max(inputDateMinutesRemaining, (int)timeToTravelMinutes);
 			}
 			else {
 				inputDateTime = inputDateTime.plusHours(Math.min(8, timeToTravelHours));
@@ -42,7 +44,7 @@ class calculateArrivalTime{
 					int totalMin1 = 1440 - 60 * inputDateTime.getHour() - inputDateTime.getMinute();
 					int inputDateHoursRemaining1 = totalMin1 / 60;
 					int inputDateMinutesRemaining1 = totalMin1 % 60;
-					System.out.println("ROunding");
+					System.out.println("Rounding");
 					inputDateTime = inputDateTime.plusHours(inputDateHoursRemaining1).plusMinutes(inputDateMinutesRemaining1);	
 				}
 			}
@@ -70,6 +72,10 @@ class calculateArrivalTime{
 			if(isHoliday(inputDateTime)) {
 				System.out.println("today is holiday less than 8 " + inputDateTime.format(format));
 				inputDateTime = inputDateTime.plusDays(1);
+//				int inputDateRemaining1 = 23 - inputDateTime.getHour();
+//				int inputDateMinutesRemaining1 = 59 - inputDateTime.getMinute();
+//				int inputDateSecondsRemaining1 = 59 - inputDateTime.getMinute();
+//				inputDateTime = inputDateTime.plusHours(inputDateRemaining1).plusMinutes(inputDateMinutesRemaining1).plusSeconds(inputDateSecondsRemaining1);
 				System.out.println(inputDateTime.format(format));
 			}
 			else {
@@ -78,7 +84,11 @@ class calculateArrivalTime{
 					System.out.println(timeToTravelMinutes);
 					inputDateTime = inputDateTime.plusMinutes((long) (6*timeToTravelMinutes));	
 				}
-				System.out.println("Arival date:" + inputDateTime.format(format));	
+				if(timeToTravelMinutes1 >0) {
+					System.out.println(timeToTravelMinutes1);
+					inputDateTime = inputDateTime.minusMinutes(timeToTravelMinutes1);	
+				}
+				System.out.println("Arrival date:" + inputDateTime.format(format));	
 				break;
 			}
 		}
