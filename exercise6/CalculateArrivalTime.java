@@ -17,13 +17,22 @@ class calculateArrivalTime{
 	}
 	public void calculate() {
 		int timeToTravelHours = distance/speed;
+		double mins = (double)distance/speed;
+		
 		int timeToTravelMinutes1 = 0;
-		float timeToTravelMinutes = distance%speed;
-//		float timeToTravelMinutes = 0;
+		float timeToTravelMinutes = (float) (mins - timeToTravelHours)*10;
+		
 		int totalMin = 1440 - 60 * inputDateTime.getHour() - inputDateTime.getMinute();
 		int inputDateHoursRemaining = totalMin / 60;
 		int inputDateMinutesRemaining = totalMin % 60;
+		int inputDateSecondsRemaining = inputDateTime.getSecond();
+//		int inputDateSecondsRemaining1 = 0;
 		System.out.println(inputDateHoursRemaining + "   " + inputDateMinutesRemaining);
+//		if(timeToTravelHours>8) {
+//			inputDateSecondsRemaining=0;
+//		}
+//		else
+//			inputDateSecondsRemaining = 0;
 		
 //		checking for the first day whether holiday or not
 		if(isHoliday(inputDateTime)) {
@@ -36,10 +45,13 @@ class calculateArrivalTime{
 				inputDateTime = inputDateTime.plusHours(Math.min(inputDateHoursRemaining, timeToTravelHours)).plusMinutes(Math.max(inputDateMinutesRemaining, (int)timeToTravelMinutes));
 				timeToTravelHours -= Math.min(inputDateHoursRemaining, timeToTravelHours);
 				timeToTravelMinutes1 += Math.max(inputDateMinutesRemaining, (int)timeToTravelMinutes);
+////				inputDateSecondsRemaining = 0;
 			}
 			else {
 				inputDateTime = inputDateTime.plusHours(Math.min(8, timeToTravelHours));
 				timeToTravelHours -= Math.min(8, timeToTravelHours);
+//				inputDateSecondsRemaining = 0;
+				inputDateTime = inputDateTime.minusSeconds(inputDateSecondsRemaining);	
 				if(timeToTravelHours > 0) {
 					int totalMin1 = 1440 - 60 * inputDateTime.getHour() - inputDateTime.getMinute();
 					int inputDateHoursRemaining1 = totalMin1 / 60;
@@ -67,31 +79,30 @@ class calculateArrivalTime{
 				timeToTravelHours-=8;	
 			}
 		}
-		
 		while(timeToTravelHours <= 8) {
 			if(isHoliday(inputDateTime)) {
 				System.out.println("today is holiday less than 8 " + inputDateTime.format(format));
 				inputDateTime = inputDateTime.plusDays(1);
-//				int inputDateRemaining1 = 23 - inputDateTime.getHour();
-//				int inputDateMinutesRemaining1 = 59 - inputDateTime.getMinute();
-//				int inputDateSecondsRemaining1 = 59 - inputDateTime.getMinute();
-//				inputDateTime = inputDateTime.plusHours(inputDateRemaining1).plusMinutes(inputDateMinutesRemaining1).plusSeconds(inputDateSecondsRemaining1);
 				System.out.println(inputDateTime.format(format));
 			}
 			else {
 				inputDateTime = inputDateTime.plusHours(timeToTravelHours);
 				if(timeToTravelMinutes >0) {
 					System.out.println(timeToTravelMinutes);
-					inputDateTime = inputDateTime.plusMinutes((long) (6*timeToTravelMinutes));	
+					inputDateTime = inputDateTime.plusMinutes((long) (6*timeToTravelMinutes));		
 				}
 				if(timeToTravelMinutes1 >0) {
-					System.out.println(timeToTravelMinutes1);
 					inputDateTime = inputDateTime.minusMinutes(timeToTravelMinutes1);	
 				}
+				System.out.println("Arrival date: before seconds" + inputDateTime.format(format));	
+//				inputDateTime = inputDateTime.minusSeconds(inputDateSecondsRemaining);	
 				System.out.println("Arrival date:" + inputDateTime.format(format));	
 				break;
 			}
 		}
+		
+////		System.out.println(inputDateSecondsRemaining);
+//		System.out.println(inputDateSecondsRemaining1);
 	}
 	
 	boolean isHoliday(LocalDateTime inputDateTime) {
